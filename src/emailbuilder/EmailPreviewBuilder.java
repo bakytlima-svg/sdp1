@@ -31,10 +31,12 @@ public class EmailPreviewBuilder implements EmailBuilder {
     }
 
     public String getResult() {
-        if (recipient == null || subject == null || body == null) {
+        if (recipient == null || subject == null
+                || body == null || priority == null) {
             throw new IllegalStateException(
-                    "Recipient, subject and body are required");
+                    "Recipient, subject, body and priority are required");
         }
+
         return "=== Email Preview ===\n"
                 + "To: " + recipient + "\n"
                 + "Subject: " + subject + "\n"
